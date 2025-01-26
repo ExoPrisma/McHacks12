@@ -1,20 +1,37 @@
-
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ButtonSample from "../components/ui/ButtonSample/ButtonSample.jsx";
 import "./status.css";
 import { getPatientStatus } from "../backend/services/statusServices.js";
 
 const StatusPage = () => {
-  const { id } = getPatientStatus("HE6420");
-
+  const { id } = useParams();
+  const [patientData, setPatientData] = useState(null);
+  
   const lvl = {
     1: "Resuscitation",
     2: "Emergent",
     3: "Urgent",
     4: "Less-urgent",
     5: "Non-urgent"
-  }
+  };
 
-  const patientData = getPatientStatus(id)
+  useEffect(() => {
+    const fetchPatientData = async () => {
+      try {
+        const data = await getPatientStatus(id);
+        setPatientData(data);
+      } catch (error) {
+        console.error("Error fetching patient data:", error);
+      }
+    };
+
+    fetchPatientData();
+  }, [id]); // Fetch data when `id` changes
+
+  if (!patientData) {
+    return <div>Loading...</div>; // Show a loading message while data is being fetched
+  }
 
   return (
     <div className="status-page">
@@ -47,24 +64,21 @@ const StatusPage = () => {
           <div className="time-elapsed-block">
             <div className="overlap-2">
               <div className="text-wrapper-2">Time Elapsed</div>
-
-              <div className="text-wrapper-3">{patientData.waitTimeMinutes}</div>
+              <div className="text-wrapper-3">{patientData.waitTimeMinutes} min</div>
             </div>
           </div>
 
           <div className="arrival-time-block">
             <div className="overlap-2">
               <div className="text-wrapper-4">Arrival Time</div>
-
-              <div className="text-wrapper-3">{patientData.arrivalTime}</div>
+              <div className="text-wrapper-3">{patientData.arrivalTime.slice(11, 16)}</div>
             </div>
           </div>
 
           <div className="current-status-block">
             <div className="overlap-3">
               <div className="text-wrapper-5">Current Status</div>
-
-              <div className="current-status-DATA">{patientData.status}</div>
+              <div className="current-status-DATA">{patientData.status.currentPhase}</div>
             </div>
           </div>
 
@@ -72,12 +86,9 @@ const StatusPage = () => {
             <div className="overlap-3">
               <div className="overlap-group-2">
                 <div className="text-wrapper-6">Triage Level</div>
-
                 <div className="ellipse" />
-
                 <div className="triage-level-DATA">{patientData.triageCategory}</div>
               </div>
-
               <div className="text-wrapper-7">{lvl[patientData.triageCategory]}</div>
             </div>
           </div>
@@ -87,15 +98,12 @@ const StatusPage = () => {
               <div className="wait-time">
                 <div className="overlap-group-3">
                   <div className="ellipse-2" />
-
                   <img
                     className="group"
                     alt="Group"
                     src="https://c.animaapp.com/GvOwWaYP/img/group-2@2x.png"
                   />
-
                   <div className="ellipse-3" />
-
                   <img
                     className="rectangle"
                     alt="Rectangle"
@@ -103,15 +111,12 @@ const StatusPage = () => {
                   />
                 </div>
               </div>
-
               <p className="p">
                 Wait times may change as we prioritize urgent cases. Thank you
                 for your patience.
               </p>
-
               <div className="estimated-wait-time-2">00:00</div>
             </div>
-
             <div className="text-wrapper-8">Estimated Wait Time</div>
           </div>
         </div>
@@ -128,4 +133,4 @@ const StatusPage = () => {
   );
 };
 
-export default StatusPage
+export default StatusPage;

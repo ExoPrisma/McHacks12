@@ -66,8 +66,7 @@ const TrackerPage = () => {
           </div>
 
           <HereIsASpaceFor
-            className="here-is-a-space-for-you-to-write-down-points-you-would-like-to-mention-once-you-see-the-physician"
-            property1="default"
+            className="space"
           />
           <div className="symptoms-tracker-2">
             <div className="DD-MM-YYYY">

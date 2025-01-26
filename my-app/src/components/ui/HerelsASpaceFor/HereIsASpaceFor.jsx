@@ -1,8 +1,9 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import PropTypes from "prop-types"
 import "./style.css";
 
 const HereIsASpaceFor = ({ property1, className }) => {
+  const [ticketNumber, setTicketNumber] = useState("");
   const [state, dispatch] = useReducer(reducer, {
     property1: property1 || "default",
   });
@@ -15,8 +16,13 @@ const HereIsASpaceFor = ({ property1, className }) => {
       }}
     >
       <p className="text-wrapper">
-        Here is a space for you to write down points you would like to mention
-        once you see the physician.
+      <textarea
+        type="text"
+        placeholder="Here is a space for you to write down points you would like to mention
+        once you see the physician."
+        value={ticketNumber}
+        onChange={(e) => setTicketNumber(e.target.value)}
+      />
       </p>
     </div>
   );

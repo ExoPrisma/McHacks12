@@ -13,18 +13,25 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     if (ticketNumber && hospitalCardNumber && phoneNumber) {
+      const currentDate = new Date();
+      const currentTime = currentDate.toISOString();
+
       const patientData = {
         id: ticketNumber,
         hospitalCardNumber,
         phoneNumber,
-        status: "waiting",
+        currentTime
       };
 
       await addPatientToQueue(patientData);
       navigate(`/${ticketNumber}/status`);
     } else if (authorizationNumber) {
-      const data = getPatientByShareCode(authorizationNumber)
-      navigate(`/${data}/status`);
+      const data = await getPatientByShareCode(authorizationNumber)
+      if (data) {
+        navigate(`/${data.id}/status`);
+      } else{
+        console.log("Patient not found, cannot navigate");
+      }
     } else {
       alert("Please fill in the required fields.");
     }

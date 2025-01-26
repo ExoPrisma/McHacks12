@@ -45,10 +45,10 @@ const addPatientToQueue = async (patientData) => {
         category: 0, // Temporary value,
       },
       status: {
-        currentPhase: patientData.status?.current_phase || "waiting",
+        currentPhase: patientData.status?.current_phase || "Waiting",
         investigations: {
-          labs: patientData.status?.investigations?.labs || "ordered",
-          imaging: patientData.status?.investigations?.imaging || "ordered",
+          labs: patientData.status?.investigations?.labs || "Ordered",
+          imaging: patientData.status?.investigations?.imaging || "Ordered",
         },
       },
       timeElapsed: patientData.time_elapsed || 0,
@@ -104,6 +104,7 @@ const getPatientStatus = async (patientId) => {
   try {
     const patientRef = doc(firestore, "patients", patientId);
     const patientDoc = await getDoc(patientRef);
+    
 
     if (!patientDoc.exists()) {
       console.log("Patient not found:", patientId);
@@ -135,7 +136,6 @@ const getPatientByShareCode = async (shareCode) => {
 
     if (!querySnapshot.empty) {
       const patientDoc = querySnapshot.docs[0];
-      console.log(patientDoc.data().id)
       return patientDoc.data();
     } else {
       console.log("Patient not found with share code:", shareCode);
