@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { firestore } from "../firebase"
+import { firestore } from "../backend/firebase"
 import { addDoc, collection } from "@firebase/firestore"
 
 export default function Test() {
