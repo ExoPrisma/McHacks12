@@ -1,4 +1,4 @@
-import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore"
+import { doc, getDoc, updateDoc} from "@firebase/firestore"
 import { addPatientToQueue, getPatientStatus, listenToPatientUpdates, calculateWaitingTime } from "./statusServices.js";
 import { firestore } from "../firebase.js";
 
