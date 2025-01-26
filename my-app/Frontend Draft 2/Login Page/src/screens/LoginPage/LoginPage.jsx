@@ -1,6 +1,6 @@
 import React from "react";
-import { ContinueButton } from "../../components/ContinueButton";
-import { TicketNumberInput } from "../../components/TicketNumberInput";
+import { ContinueButton } from "../../../../../src/components/ui/ContinueButton";
+import { TicketNumberInput } from "../../../../../src/components/ui/TicketNumberInput";
 import "./style.css";
 
 export const LoginPage = () => {

@@ -1,13 +1,8 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
-
-import React from "react";
 import { useReducer } from "react";
+import PropTypes from "prop-types"
 import "./style.css";
 
-export const TicketNumberInput = ({ stateProp }) => {
+const TicketNumberInput = ({ stateProp }) => {
   const [state, dispatch] = useReducer(reducer, {
     state: stateProp || "default",
   });
@@ -45,3 +40,9 @@ function reducer(state, action) {
 
   return state;
 }
+
+TicketNumberInput.propTypes = {
+  stateProp: PropTypes.string,    // stateProp should be a string
+}
+
+export default TicketNumberInput

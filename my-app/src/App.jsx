@@ -1,14 +1,22 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/login"
+import StatusPage from "./pages/status"
+import TrackerPage from "./pages/tracker"
+import NotFound from "./pages/notfound"
 import './App.css'
-import Test from "./pages/test.jsx"
 
 function App() {
 
   return (
-    <>
-      <div className="App">
-        <Test/>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/status" element={<StatusPage />} />
+        <Route path="/tracker" element={<TrackerPage />} />
+        <Route path="*" element={< NotFound/>} />
+      </Routes>
+      
+    </Router>
   )
 }
 

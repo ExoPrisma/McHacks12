@@ -1,13 +1,8 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
-
-import React from "react";
 import { useReducer } from "react";
+import PropTypes from "prop-types"
 import "./style.css";
 
-export const HereIsASpaceFor = ({ property1, className }) => {
+const HereIsASpaceFor = ({ property1, className }) => {
   const [state, dispatch] = useReducer(reducer, {
     property1: property1 || "default",
   });
@@ -38,3 +33,10 @@ function reducer(state, action) {
 
   return state;
 }
+
+HereIsASpaceFor.propTypes = {
+  property1: PropTypes.string,    // property1 should be a string
+  className: PropTypes.string,    // ClassName should be a string
+}
+
+export default HereIsASpaceFor
