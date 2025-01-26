@@ -93,7 +93,7 @@
     font-family: "Inter", Helvetica;
     font-size: 18px;
     font-weight: 600;
-    left: 0;
+    left: -50px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -122,11 +122,11 @@
     font-family: "Inter", Helvetica;
     font-size: 18px;
     font-weight: 600;
-    left: 0;
+    left: -10px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 0;
+    top: -5px;
     width: 203px;
   }
   
@@ -134,6 +134,7 @@
     height: 165px;
     left: 23px;
     position: absolute;
+    text-align: left;
     top: 55px;
     width: 387px;
   }
@@ -141,6 +142,7 @@
   .tracker-page .overlap-group {
     height: 165px;
     position: relative;
+    text-align: left;
     width: 383px;
   }
   
@@ -151,6 +153,7 @@
     font-weight: 400;
     left: 0;
     letter-spacing: 0;
+    text-align: left;
     line-height: normal;
     position: absolute;
     top: 0;
@@ -159,11 +162,16 @@
   
   .tracker-page .span {
     font-weight: 600;
+    text-align: left;
   }
   
   .tracker-page .text-wrapper-3 {
+    font-family: "Inter", Helvetica;
     font-size: 15px;
     font-weight: 300;
+    top: 10px;
+    text-align: left;
+    position: relative;
   }
   
   .tracker-page .name-DATA {
@@ -171,11 +179,11 @@
     font-family: "Inter", Helvetica;
     font-size: 17px;
     font-weight: 600;
-    left: 48px;
+    left: 0px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
-    top: 0;
+    top: -20;
     white-space: nowrap;
     width: 88px;
   }
@@ -185,6 +193,7 @@
     left: 23px !important;
     position: absolute !important;
     top: 271px !important;
+    text-align: left;
   }
   
   .tracker-page .symptoms-tracker-2 {
@@ -221,7 +230,9 @@
     font-family: "Inter", Helvetica;
     font-size: 14px;
     font-weight: 400;
+    top: -0px;
     letter-spacing: 0;
+    text-align: left;
     line-height: normal;
     position: relative;
   }

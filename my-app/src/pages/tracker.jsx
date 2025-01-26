@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import ButtonSample from "../components/ui/ButtonSample/ButtonSample.jsx";
 import HereIsASpaceFor from "../components/ui/HerelsASpaceFor/HereIsASpaceFor.jsx";
 import "./tracker.css";
@@ -52,10 +51,6 @@ const TrackerPage = () => {
           <div className="instruction">
             <div className="overlap-group">
               <p className="hello-we-understand">
-                <span className="span">
-                  Hello
-                  <br />
-                </span>
 
                 <span className="text-wrapper-3">
                   We understand that waiting can be difficult, and we want to
@@ -66,7 +61,7 @@ const TrackerPage = () => {
                 </span>
               </p>
 
-              <div className="name-DATA">John Doe,</div>
+              <div className="name-DATA">Hello John Doe,</div>
             </div>
           </div>
 
