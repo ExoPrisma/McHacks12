@@ -1,0 +1,29 @@
+.button-sample {
+    align-items: center;
+    background-color: #c4e7fd;
+    border: 1.5px solid;
+    border-color: #000000;
+    border-radius: 20px;
+    box-shadow: inset 0px 4px 4px #00000040;
+    display: flex;
+    gap: 10px;
+    height: 44px;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    width: 107px;
+  }
+  
+  .button-sample .text {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: -1.00px;
+    margin-top: -4.00px;
+    position: relative;
+    width: fit-content;
+  }
+  

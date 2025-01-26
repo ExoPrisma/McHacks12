@@ -1,0 +1,445 @@
+.status-page {
+    background-color: #c4e8fe;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .status-page .div {
+    background-color: #c4e8fe;
+    height: 932px;
+    overflow: hidden;
+    position: relative;
+    width: 430px;
+  }
+  
+  .status-page .overlap {
+    background-color: #ffffff;
+    border-radius: 33px;
+    height: 897px;
+    left: 0;
+    position: absolute;
+    top: 116px;
+    width: 430px;
+  }
+  
+  .status-page .buttons {
+    height: 49px;
+    left: 20px;
+    position: absolute;
+    top: 729px;
+    width: 390px;
+  }
+  
+  .status-page .track-symptoms {
+    height: 49px !important;
+    left: 185px !important;
+    position: absolute !important;
+    top: 0 !important;
+    width: 205px !important;
+  }
+  
+  .status-page .button-sample-instance {
+    font-size: 21px !important;
+    margin-bottom: unset !important;
+    margin-top: unset !important;
+    white-space: nowrap !important;
+  }
+  
+  .status-page .overlap-group {
+    border-radius: 20px;
+    height: 49px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 164px;
+  }
+  
+  .status-page .share-button {
+    height: 49px !important;
+    justify-content: unset !important;
+    left: 0 !important;
+    padding: 10px 35px !important;
+    position: absolute !important;
+    top: 0 !important;
+    width: 164px !important;
+  }
+  
+  .status-page .design-component-instance-node {
+    margin-bottom: unset !important;
+    margin-top: -1.50px !important;
+  }
+  
+  .status-page .share-icon {
+    height: 32px;
+    left: 101px;
+    position: absolute;
+    top: 8px;
+    width: 39px;
+  }
+  
+  .status-page .text-wrapper {
+    color: #0e2b3c;
+    font-family: "Inter", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    height: 45px;
+    left: 26px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 674px;
+    width: 384px;
+  }
+  
+  .status-page .time-elapsed-block {
+    height: 109px;
+    left: 225px;
+    position: absolute;
+    top: 558px;
+    width: 189px;
+  }
+  
+  .status-page .overlap-2 {
+    background-color: #cdecff;
+    border: 4px solid;
+    border-color: #89c5ea;
+    border-radius: 28px;
+    height: 109px;
+    position: relative;
+    width: 185px;
+  }
+  
+  .status-page .text-wrapper-2 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 23px;
+    font-weight: 600;
+    left: 6px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    width: 165px;
+  }
+  
+  .status-page .text-wrapper-3 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 32px;
+    font-weight: 700;
+    left: 18px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 45px;
+    white-space: nowrap;
+    width: 142px;
+  }
+  
+  .status-page .arrival-time-block {
+    height: 109px;
+    left: 20px;
+    position: absolute;
+    top: 558px;
+    width: 189px;
+  }
+  
+  .status-page .text-wrapper-4 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 23px;
+    font-weight: 600;
+    left: 18px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 9px;
+    width: 142px;
+  }
+  
+  .status-page .current-status-block {
+    height: 169px;
+    left: 225px;
+    position: absolute;
+    top: 372px;
+    width: 189px;
+  }
+  
+  .status-page .overlap-3 {
+    border: 4px solid;
+    border-color: #89c5ea;
+    border-radius: 28px;
+    height: 169px;
+    position: relative;
+    width: 185px;
+  }
+  
+  .status-page .text-wrapper-5 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 23px;
+    font-weight: 600;
+    left: -4px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 12px;
+    width: 185px;
+  }
+  
+  .status-page .current-status-DATA {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 38px;
+    font-weight: 700;
+    left: -4px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 69px;
+    width: 185px;
+  }
+  
+  .status-page .triage-level-block {
+    height: 169px;
+    left: 20px;
+    position: absolute;
+    top: 372px;
+    width: 191px;
+  }
+  
+  .status-page .overlap-group-2 {
+    height: 110px;
+    left: 22px;
+    position: absolute;
+    top: 16px;
+    width: 142px;
+  }
+  
+  .status-page .text-wrapper-6 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 23px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 142px;
+  }
+  
+  .status-page .ellipse {
+    background-color: #ffdb14;
+    border-radius: 38px;
+    height: 76px;
+    left: 33px;
+    position: absolute;
+    top: 34px;
+    width: 76px;
+  }
+  
+  .status-page .triage-level-DATA {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 57px;
+    font-weight: 700;
+    left: 52px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 37px;
+  }
+  
+  .status-page .text-wrapper-7 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 21px;
+    font-weight: 500;
+    left: 18px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 124px;
+    width: 142px;
+  }
+  
+  .status-page .estimated-wait-time {
+    height: 329px;
+    left: 20px;
+    position: absolute;
+    top: 26px;
+    width: 396px;
+  }
+  
+  .status-page .overlap-4 {
+    height: 299px;
+    left: 0;
+    position: absolute;
+    top: 30px;
+    width: 390px;
+  }
+  
+  .status-page .wait-time {
+    height: 299px;
+    left: 6px;
+    position: absolute;
+    top: 0;
+    width: 384px;
+  }
+  
+  .status-page .overlap-group-3 {
+    height: 299px;
+    position: relative;
+  }
+  
+  .status-page .ellipse-2 {
+    background-color: #c7e9ff;
+    border-radius: 150.5px / 138.89px;
+    height: 278px;
+    left: 38px;
+    position: absolute;
+    top: 15px;
+    width: 301px;
+  }
+  
+  .status-page .group {
+    height: 250px;
+    left: 12px;
+    position: absolute;
+    top: 0;
+    width: 186px;
+  }
+  
+  .status-page .ellipse-3 {
+    background-color: #ffffff;
+    border-radius: 120.5px / 106.59px;
+    height: 213px;
+    left: 68px;
+    position: absolute;
+    top: 47px;
+    width: 241px;
+  }
+  
+  .status-page .rectangle {
+    height: 109px;
+    left: 0;
+    position: absolute;
+    top: 190px;
+    width: 384px;
+  }
+  
+  .status-page .p {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 17px;
+    font-weight: 500;
+    height: 36px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 252px;
+    width: 390px;
+  }
+  
+  .status-page .estimated-wait-time-2 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 64px;
+    font-weight: 600;
+    left: 98px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 106px;
+    white-space: nowrap;
+    width: 194px;
+  }
+  
+  .status-page .text-wrapper-8 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 24px;
+    font-weight: 600;
+    left: 52px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 286px;
+  }
+  
+  .status-page .name-ID {
+    height: 34px;
+    left: 21px;
+    position: absolute;
+    top: 70px;
+    width: 399px;
+  }
+  
+  .status-page .overlap-5 {
+    height: 33px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 221px;
+  }
+  
+  .status-page .name-DATA {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 28px;
+    font-weight: 600;
+    left: 80px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 141px;
+  }
+  
+  .status-page .greetings {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 28px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 88px;
+  }
+  
+  .status-page .ID-number-DATA {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 16px;
+    font-weight: 500;
+    height: 26px;
+    left: 272px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 8px;
+    width: 121px;
+  }
+  

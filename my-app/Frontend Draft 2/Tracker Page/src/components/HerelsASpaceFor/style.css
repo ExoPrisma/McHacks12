@@ -1,0 +1,39 @@
+.here-is-a-space-for {
+    border-radius: 7px;
+    height: 225px;
+    position: relative;
+    width: 387px;
+  }
+  
+  .here-is-a-space-for .text-wrapper {
+    font-family: "Inter", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    left: 10px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    width: 368px;
+  }
+  
+  .here-is-a-space-for.default {
+    border: 2px solid;
+    border-color: #d5d4d4;
+  }
+  
+  .here-is-a-space-for.variant-2 {
+    border: 1px solid;
+    border-color: #59a4d3;
+  }
+  
+  .here-is-a-space-for.default .text-wrapper {
+    color: #323232;
+    opacity: 0.5;
+    top: 4px;
+  }
+  
+  .here-is-a-space-for.variant-2 .text-wrapper {
+    color: #000000;
+    top: 5px;
+  }
+  

@@ -1,0 +1,37 @@
+.ticket-number-input {
+    border: 1px solid;
+    border-radius: 5px;
+    height: 51px;
+    position: relative;
+    width: 411px;
+  }
+  
+  .ticket-number-input .text-wrapper {
+    font-family: "Inter", Helvetica;
+    font-size: 20px;
+    font-weight: 600;
+    left: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 13px;
+  }
+  
+  .ticket-number-input.active {
+    border-color: #c4e8fe;
+  }
+  
+  .ticket-number-input.default {
+    border-color: #c0c0c0;
+  }
+  
+  .ticket-number-input.active .text-wrapper {
+    color: #000000;
+    width: 250px;
+  }
+  
+  .ticket-number-input.default .text-wrapper {
+    color: #c0c0c0;
+    white-space: nowrap;
+  }
+  

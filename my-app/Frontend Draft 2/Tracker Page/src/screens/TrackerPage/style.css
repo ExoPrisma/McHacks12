@@ -1,0 +1,268 @@
+.tracker-page {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .tracker-page .overlap-wrapper {
+    background-color: #ffffff;
+    height: 1084px;
+    width: 430px;
+  }
+  
+  .tracker-page .overlap {
+    height: 1054px;
+    position: relative;
+  }
+  
+  .tracker-page .background-blue {
+    height: 408px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 430px;
+  }
+  
+  .tracker-page .background-white {
+    background-color: #ffffff;
+    border-radius: 33px;
+    height: 831px;
+    left: 0;
+    position: absolute;
+    top: 212px;
+    width: 430px;
+  }
+  
+  .tracker-page .buttons {
+    height: 48px;
+    left: 22px;
+    position: absolute;
+    top: 1006px;
+    width: 388px;
+  }
+  
+  .tracker-page .track-wait-time {
+    height: 48px !important;
+    left: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    width: 183px !important;
+  }
+  
+  .tracker-page .button-sample-instance {
+    font-size: 21px !important;
+    margin-bottom: unset !important;
+    margin-top: unset !important;
+    white-space: nowrap !important;
+  }
+  
+  .tracker-page .translate-button {
+    height: 48px !important;
+    left: 203px !important;
+    position: absolute !important;
+    top: 0 !important;
+    width: 185px !important;
+  }
+  
+  .tracker-page .symptoms-tracker {
+    height: 443px;
+    left: 23px;
+    position: absolute;
+    top: 533px;
+    width: 391px;
+  }
+  
+  .tracker-page .save-button-symptoms {
+    height: 27px !important;
+    left: 315px !important;
+    position: absolute !important;
+    top: 416px !important;
+    width: 74px !important;
+  }
+  
+  .tracker-page .design-component-instance-node {
+    font-size: 14px !important;
+    margin-bottom: -3.50px !important;
+    margin-top: -6.50px !important;
+  }
+  
+  .tracker-page .div {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 18px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 267px;
+  }
+  
+  .tracker-page .appointment-goals {
+    height: 297px;
+    left: 22px;
+    position: absolute;
+    top: 236px;
+    width: 390px;
+  }
+  
+  .tracker-page .save-button {
+    height: 27px !important;
+    left: 314px !important;
+    position: absolute !important;
+    top: 270px !important;
+    width: 74px !important;
+  }
+  
+  .tracker-page .text-wrapper-2 {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 18px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 203px;
+  }
+  
+  .tracker-page .instruction {
+    height: 165px;
+    left: 23px;
+    position: absolute;
+    top: 55px;
+    width: 387px;
+  }
+  
+  .tracker-page .overlap-group {
+    height: 165px;
+    position: relative;
+    width: 383px;
+  }
+  
+  .tracker-page .hello-we-understand {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 17px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 383px;
+  }
+  
+  .tracker-page .span {
+    font-weight: 600;
+  }
+  
+  .tracker-page .text-wrapper-3 {
+    font-size: 15px;
+    font-weight: 300;
+  }
+  
+  .tracker-page .name-DATA {
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 17px;
+    font-weight: 600;
+    left: 48px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 88px;
+  }
+  
+  .tracker-page
+    .here-is-a-space-for-you-to-write-down-points-you-would-like-to-mention-once-you-see-the-physician {
+    left: 23px !important;
+    position: absolute !important;
+    top: 271px !important;
+  }
+  
+  .tracker-page .symptoms-tracker-2 {
+    height: 356px;
+    left: 29px;
+    position: absolute;
+    top: 599px;
+    width: 360px;
+  }
+  
+  .tracker-page .DD-MM-YYYY {
+    height: 89px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 360px;
+  }
+  
+  .tracker-page .flexcontainer {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 89px;
+    left: 4px;
+    position: relative;
+    top: -15px;
+    width: 360px;
+  }
+  
+  .tracker-page .span-wrapper {
+    align-self: stretch;
+    color: #000000;
+    font-family: "Inter", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+  }
+  
+  .tracker-page .text-wrapper-4 {
+    font-size: 13px;
+    font-weight: 300;
+  }
+  
+  .tracker-page .flexcontainer-wrapper {
+    height: 89px;
+    left: 0;
+    position: absolute;
+    top: 267px;
+    width: 360px;
+  }
+  
+  .tracker-page .flexcontainer-i-wrapper {
+    height: 89px;
+    left: 0;
+    position: absolute;
+    top: 178px;
+    width: 360px;
+  }
+  
+  .tracker-page .div-wrapper {
+    height: 89px;
+    left: 0;
+    position: absolute;
+    top: 89px;
+    width: 360px;
+  }
+  
+  .tracker-page .rectangle {
+    border: 2px solid;
+    border-color: #b8b8b8;
+    border-radius: 7px;
+    height: 369px;
+    left: 23px;
+    position: absolute;
+    top: 572px;
+    width: 387px;
+  }
+  
