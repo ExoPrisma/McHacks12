@@ -105,9 +105,6 @@ const getPatientStatus = async (patientId) => {
     const patientRef = doc(firestore, "patients", patientId);
     const patientDoc = await getDoc(patientRef);
     
-
-
-
     if (!patientDoc.exists()) {
       console.log("Patient not found:", patientId);
       return null;
@@ -138,7 +135,6 @@ const getPatientByShareCode = async (shareCode) => {
 
     if (!querySnapshot.empty) {
       const patientDoc = querySnapshot.docs[0];
-      console.log(patientDoc.data().id)
       return patientDoc.data();
     } else {
       console.log("Patient not found with share code:", shareCode);
