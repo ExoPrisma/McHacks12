@@ -1,36 +1,8 @@
 import { query, where, doc, setDoc, collection, getDoc, getDocs, updateDoc, onSnapshot } from "@firebase/firestore";
 import { firestore } from "../firebase.js";
 
-const _isShareCodeUnique = async (shareCode) => {
-  const patientsRef = collection(firestore, "patients");
-  const q = query(patientsRef, where("shareCode", "==", shareCode));
-  const querySnapshot = await getDocs(q);
-
-  return querySnapshot.empty;
-};
-
-const generateUniqueShareCode = async (retryLimit = 10) => {
-  let shareCode;
-  let isUnique = false;
-  let retries = 0;
-
-  while (!isUnique && retries < retryLimit) {
-    shareCode = Math.floor(10000000 + Math.random() * 90000000);
-    isUnique = await _isShareCodeUnique(shareCode);
-    retries++;
-  }
-
-  if (!isUnique) {
-    throw new Error("Failed to generate a unique share code.");
-  }
-
-  return shareCode;
-};
-
 const addPatientToQueue = async (patientData) => {
   try {
-
-    const shareCode = await generateUniqueShareCode();
 
     // Add the new patient to Firestore
     const patientRef = doc(firestore, "patients", patientData.id);
@@ -52,7 +24,7 @@ const addPatientToQueue = async (patientData) => {
         },
       },
       timeElapsed: patientData.time_elapsed || 0,
-      shareCode: shareCode
+      shareCode: 0
     });
 
     console.log("Patient added to queue:", patientData.id);
@@ -131,7 +103,7 @@ const getPatientStatus = async (patientId) => {
 const getPatientByShareCode = async (shareCode) => {
   try {
     const patientsRef = collection(firestore, "patients");
-    const q = query(patientsRef, where("shareCode", "==", Number(shareCode)));
+    const q = query(patientsRef, where("shareCode", "==", String(shareCode)));
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {

@@ -1,1 +1,0 @@
-export { StatusPageConsent } from "./StatusPageConsent";

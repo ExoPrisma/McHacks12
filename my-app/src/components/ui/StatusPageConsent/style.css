@@ -1,0 +1,74 @@
+.consent-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.consent-modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.consent-content {
+  text-align: center;
+}
+
+.consent-content h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.consent-content p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.share-code {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin: 20px 0;
+}
+
+.consent-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.consent-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.consent-button.agree {
+  background-color: #4caf50;
+  color: white;
+}
+
+.consent-button.cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+.consent-button.close {
+  background-color: #4caf50;
+  color: white;
+  width: 100%;
+}

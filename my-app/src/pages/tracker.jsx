@@ -3,7 +3,6 @@ import HereIsASpaceFor from "../components/ui/HerelsASpaceFor/HereIsASpaceFor.js
 import "./tracker.css";
 
 const TrackerPage = () => {
-  // const { id } = useParams();
 
   return (
     <div className="tracker-page">

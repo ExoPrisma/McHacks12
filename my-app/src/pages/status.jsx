@@ -4,6 +4,7 @@ import { firestore } from "../backend/firebase.js";
 import { collection, getDocs } from "@firebase/firestore";
 import { getPatientStatus, calculateWaitingTime } from "../backend/services/statusServices.js";
 import ButtonSample from "../components/ui/ButtonSample/ButtonSample.jsx";
+import StatusPageConsent from "../components/ui/StatusPageConsent/StatusPageConsent.jsx";
 import "./status.css";
 
 const StatusPage = () => {
@@ -11,6 +12,7 @@ const StatusPage = () => {
   const hospitalCapacity = 3; 
   const [patientData, setPatientData] = useState(null);
   const [waitTime, setWaitTime] = useState("00:00");
+  const [isConsentVisible, setIsConsentVisible] = useState(false);
   const navigate = useNavigate();
   
   const lvl = {
@@ -27,13 +29,12 @@ const StatusPage = () => {
         const data = await getPatientStatus(id);
         setPatientData(data);
 
-        const patientsCollection = collection(firestore, "patients"); // Assuming the collection is named "patients"
+        const patientsCollection = collection(firestore, "patients");
         const patientSnapshot = await getDocs(patientsCollection);
         const patientsList = patientSnapshot.docs.map(doc => doc.data());
 
         const result = calculateWaitingTime(patientsList, hospitalCapacity);
 
-        // Set the estimated wait time for the current patient
         if (result.length > 0) {
           const patientWaitTime = result.find(patient => patient.id === data.id)?.waitingTime;
           if (patientWaitTime !== undefined) {
@@ -49,23 +50,28 @@ const StatusPage = () => {
     };
 
     fetchPatientData();
-  }, [id]); // Fetch data when `id` changes
+  }, [id]);
 
   const handleShareClick = () => {
-    alert("Share functionality triggered");
+    setIsConsentVisible(true);  // Show the consent modal
   };
 
   const handleTrackSymptomsClick = () => {
     navigate(`/${id}/tracker`);
   };
 
+  const handleCloseConsent = () => {
+    setIsConsentVisible(false);  // Hide the consent modal
+  };
 
   if (!patientData) {
-    return <div>Loading...</div>; // Show a loading message while data is being fetched
+    return <div>Loading...</div>;
   }
 
   return (
     <div className="status-page">
+      {isConsentVisible && <StatusPageConsent onClose={handleCloseConsent} patientId={id} />} 
+      
       <div className="div">
         <div className="overlap">
           <div className="buttons">
