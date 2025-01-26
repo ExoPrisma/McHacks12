@@ -6,6 +6,14 @@ import { getPatientStatus } from "../backend/services/statusServices.js";
 const StatusPage = () => {
   const { id } = useParams();
 
+  const lvl = {
+    1: "Resuscitation",
+    2: "Emergent",
+    3: "Urgent",
+    4: "Less-urgent",
+    5: "Non-urgent"
+  }
+
   const patientData = getPatientStatus(id)
 
   return (
@@ -48,7 +56,7 @@ const StatusPage = () => {
             <div className="overlap-2">
               <div className="text-wrapper-4">Arrival Time</div>
 
-              <div className="text-wrapper-3">13:45</div>
+              <div className="text-wrapper-3">{patientData.arrivalTime}</div>
             </div>
           </div>
 
@@ -56,7 +64,7 @@ const StatusPage = () => {
             <div className="overlap-3">
               <div className="text-wrapper-5">Current Status</div>
 
-              <div className="current-status-DATA">Triaged</div>
+              <div className="current-status-DATA">{patientData.status}</div>
             </div>
           </div>
 
@@ -67,10 +75,10 @@ const StatusPage = () => {
 
                 <div className="ellipse" />
 
-                <div className="triage-level-DATA">3</div>
+                <div className="triage-level-DATA">{patientData.triageCategory}</div>
               </div>
 
-              <div className="text-wrapper-7">Urgent Care</div>
+              <div className="text-wrapper-7">{lvl[patientData.triageCategory]}</div>
             </div>
           </div>
 
@@ -110,12 +118,10 @@ const StatusPage = () => {
 
         <div className="name-ID">
           <div className="overlap-5">
-            <div className="name-DATA">John Doe,</div>
-
-            <div className="greetings">Hello</div>
+            <div className="name-DATA">Hello John Doe,</div>
           </div>
 
-          <div className="ID-number-DATA">ID : anon_0000</div>
+          <div className="ID-number-DATA">ID : {patientData.id}</div>
         </div>
       </div>
     </div>
