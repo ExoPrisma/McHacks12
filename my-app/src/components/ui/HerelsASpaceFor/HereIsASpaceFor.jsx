@@ -18,7 +18,8 @@ const HereIsASpaceFor = ({ property1, className }) => {
       <p className="text-wrapper">
       <input
         type="text"
-        placeholder="Here is a space for you to write down points you would like to mention once you see the physician."
+        placeholder="Here is a space for you to write down points you would like to mention 
+        once you see the physician."
         value={ticketNumber}
         onChange={(e) => setTicketNumber(e.target.value)}
       />
