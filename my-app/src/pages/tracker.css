@@ -181,7 +181,7 @@
   }
   
   .tracker-page
-    .here-is-a-space-for-you-to-write-down-points-you-would-like-to-mention-once-you-see-the-physician {
+    .space {
     left: 23px !important;
     position: absolute !important;
     top: 271px !important;

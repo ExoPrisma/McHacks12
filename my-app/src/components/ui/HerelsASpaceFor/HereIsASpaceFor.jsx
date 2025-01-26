@@ -16,7 +16,7 @@ const HereIsASpaceFor = ({ property1, className }) => {
       }}
     >
       <p className="text-wrapper">
-      <input
+      <textarea
         type="text"
         placeholder="Here is a space for you to write down points you would like to mention
         once you see the physician."
