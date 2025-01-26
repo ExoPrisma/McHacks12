@@ -45,10 +45,10 @@ const addPatientToQueue = async (patientData) => {
         category: 0, // Temporary value,
       },
       status: {
-        currentPhase: patientData.status?.current_phase || "waiting",
+        currentPhase: patientData.status?.current_phase || "Waiting",
         investigations: {
-          labs: patientData.status?.investigations?.labs || "ordered",
-          imaging: patientData.status?.investigations?.imaging || "ordered",
+          labs: patientData.status?.investigations?.labs || "Ordered",
+          imaging: patientData.status?.investigations?.imaging || "Ordered",
         },
       },
       timeElapsed: patientData.time_elapsed || 0,
