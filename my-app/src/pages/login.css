@@ -8,7 +8,7 @@
   
   .login-page .overlap-group-wrapper {
     background-color: #ffffff;
-    height: 932px;
+    height: 1000px;
     overflow: hidden;
     width: 430px;
   }
@@ -48,8 +48,8 @@
   
   .login-page .continue-button-instance {
     left: 113px !important;
-    position: absolute !important;
-    top: 859px !important;
+    position: relative !important;
+    top: 920px !important;
   }
   
   .login-page .family-login-info {
@@ -69,6 +69,7 @@
     font-family: "Inter", Helvetica;
     font-size: 22px;
     font-weight: 600;
+    text-align: left;
     height: 34px;
     letter-spacing: 0;
     line-height: normal;
@@ -118,6 +119,7 @@
     font-family: "Inter", Helvetica;
     font-size: 16px;
     font-weight: 600;
+    text-align: left;
     height: 34px;
     letter-spacing: 0;
     line-height: normal;
@@ -132,9 +134,8 @@
     left: 132px;
     letter-spacing: 0;
     line-height: normal;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 660px;
     white-space: nowrap;
     width: 166px;
   }
@@ -145,7 +146,7 @@
     left: 10px;
     object-fit: cover;
     position: absolute;
-    top: 618px;
+    top: 660px;
     width: 410px;
   }
   

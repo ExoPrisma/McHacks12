@@ -109,13 +109,13 @@ const LoginPage = () => {
             <div className="frame">
               <input
                 type="text"
-                placeholder="Enter authorized code here"
+                placeholder="Enter authorization code here"
                 value={authorizationNumber}
                 onChange={(e) => setAuthorizationNumber(e.target.value)}
               />
             </div>
             <div className="text-wrapper-3">
-              Authorized code example: AB12CD34
+              Authorization code example: AB12CD34
             </div>
           </div>
 
