@@ -11,8 +11,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
-        <Route path="/status" element={<StatusPage />} />
-        <Route path="/tracker" element={<TrackerPage />} />
+        <Route path="/:id/status" element={<StatusPage />} />
+        <Route path="/:id/tracker" element={<TrackerPage />} />
         <Route path="*" element={< NotFound/>} />
       </Routes>
       

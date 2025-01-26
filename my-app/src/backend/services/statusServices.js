@@ -36,6 +36,8 @@ const addPatientToQueue = async (patientData) => {
     const patientRef = doc(firestore, "patients", patientData.id);
     await setDoc(patientRef, {
       id: patientData.id,
+      hospitalNo: patientData.hospitalNo,
+      phoneNumber: patientData.phoneNumber,
       arrivalTime: patientData.arrival_time,
       triageCategory: patientData.triage_category,
       queuePosition: {
@@ -102,10 +104,7 @@ const getPatientStatus = async (patientId) => {
   try {
     const patientRef = doc(firestore, "patients", patientId);
     const patientDoc = await getDoc(patientRef);
-
-    const data = getPatientStatus("AU12341")
-    data.id
-
+    
     if (!patientDoc.exists()) {
       console.log("Patient not found:", patientId);
       return null;
@@ -131,11 +130,12 @@ const getPatientStatus = async (patientId) => {
 const getPatientByShareCode = async (shareCode) => {
   try {
     const patientsRef = collection(firestore, "patients");
-    const q = query(patientsRef, where("shareCode", "==", shareCode));
+    const q = query(patientsRef, where("shareCode", "==", Number(shareCode)));
     const querySnapshot = await getDocs(q);
 
     if (!querySnapshot.empty) {
       const patientDoc = querySnapshot.docs[0];
+      console.log(patientDoc.data().id)
       return patientDoc.data();
     } else {
       console.log("Patient not found with share code:", shareCode);
