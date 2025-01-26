@@ -12,6 +12,7 @@
     padding: 10px;
     position: relative;
     width: 107px;
+    cursor: pointer;
   }
   
   .button-sample .text {
@@ -25,5 +26,6 @@
     margin-top: -4.00px;
     position: relative;
     width: fit-content;
+    cursor: pointer;
   }
   

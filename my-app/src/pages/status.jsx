@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { firestore } from "../backend/firebase.js";
+import { collection, getDocs } from "@firebase/firestore";
+import { getPatientStatus, calculateWaitingTime } from "../backend/services/statusServices.js";
 import ButtonSample from "../components/ui/ButtonSample/ButtonSample.jsx";
 import "./status.css";
-import { getPatientStatus } from "../backend/services/statusServices.js";
 
 const StatusPage = () => {
   const { id } = useParams();
+  const hospitalCapacity = 3; 
   const [patientData, setPatientData] = useState(null);
+  const [waitTime, setWaitTime] = useState("00:00");
+  const navigate = useNavigate();
   
   const lvl = {
     1: "Resuscitation",
@@ -21,6 +26,23 @@ const StatusPage = () => {
       try {
         const data = await getPatientStatus(id);
         setPatientData(data);
+
+        const patientsCollection = collection(firestore, "patients"); // Assuming the collection is named "patients"
+        const patientSnapshot = await getDocs(patientsCollection);
+        const patientsList = patientSnapshot.docs.map(doc => doc.data());
+
+        const result = calculateWaitingTime(patientsList, hospitalCapacity);
+
+        // Set the estimated wait time for the current patient
+        if (result.length > 0) {
+          const patientWaitTime = result.find(patient => patient.id === data.id)?.waitingTime;
+          if (patientWaitTime !== undefined) {
+            const hours = Math.floor(patientWaitTime / 60);
+            const minutes = patientWaitTime % 60;
+            setWaitTime(`${hours}:${minutes < 10 ? "0" + minutes : minutes}`);
+          }
+        }
+
       } catch (error) {
         console.error("Error fetching patient data:", error);
       }
@@ -28,6 +50,15 @@ const StatusPage = () => {
 
     fetchPatientData();
   }, [id]); // Fetch data when `id` changes
+
+  const handleShareClick = () => {
+    alert("Share functionality triggered");
+  };
+
+  const handleTrackSymptomsClick = () => {
+    navigate(`/${id}/tracker`);
+  };
+
 
   if (!patientData) {
     return <div>Loading...</div>; // Show a loading message while data is being fetched
@@ -42,17 +73,20 @@ const StatusPage = () => {
               className="track-symptoms"
               divClassName="button-sample-instance"
               text="Track symptoms"
+              onClick={handleTrackSymptomsClick}
             />
             <div className="overlap-group">
               <ButtonSample
                 className="share-button"
                 divClassName="design-component-instance-node"
                 text="Share"
+                onClick={handleShareClick}
               />
               <img
                 className="share-icon"
                 alt="Share icon"
                 src="https://c.animaapp.com/GvOwWaYP/img/share-icon@2x.png"
+                style={{ cursor: 'pointer' }}
               />
             </div>
           </div>
@@ -115,7 +149,7 @@ const StatusPage = () => {
                 Wait times may change as we prioritize urgent cases. Thank you
                 for your patience.
               </p>
-              <div className="estimated-wait-time-2">00:00</div>
+              <div className="estimated-wait-time-2">{waitTime}</div>
             </div>
             <div className="text-wrapper-8">Estimated Wait Time</div>
           </div>
