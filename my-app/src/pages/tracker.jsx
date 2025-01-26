@@ -1,9 +1,11 @@
+import { useState } from "react"
 import ButtonSample from "../components/ui/ButtonSample/ButtonSample.jsx";
 import HereIsASpaceFor from "../components/ui/HerelsASpaceFor/HereIsASpaceFor.jsx";
 import "./tracker.css";
 
 const TrackerPage = () => {
   // const { id } = useParams();
+    const [symptoms, setSymptoms] = useState("");
 
   return (
     <div className="tracker-page">
@@ -71,18 +73,15 @@ const TrackerPage = () => {
           <div className="symptoms-tracker-2">
             <div className="DD-MM-YYYY">
               <div className="flexcontainer">
-                <p className="span-wrapper">
-                  <span className="span">
-                    DD/MM/YYYY - 00:00
-                    <br />
-                  </span>
-                </p>
-
-                <p className="span-wrapper">
-                  <span className="text-wrapper-4">
-                    Enter your current symptoms
-                  </span>
-                </p>
+              <p className="text-wrapper">
+      <input
+        type="text"
+        placeholder="Here is a space for you to write down points you would like to mention 
+        once you see the physician."
+        value={symptoms}
+        onChange={(e) => setSymptoms(e.target.value)}
+      />
+      </p>
               </div>
             </div>
 
