@@ -33,11 +33,11 @@
   }
   
   .status-page .track-symptoms {
-    height: 49px !important;
+    height: 45px !important;
     left: 185px !important;
     position: absolute !important;
     top: 0 !important;
-    width: 205px !important;
+    width: 190px !important;
   }
   
   .status-page .button-sample-instance {
@@ -57,13 +57,13 @@
   }
   
   .status-page .share-button {
-    height: 49px !important;
+    height: 45px !important;
     justify-content: unset !important;
     left: 0 !important;
     padding: 10px 35px !important;
     position: absolute !important;
     top: 0 !important;
-    width: 164px !important;
+    width: 95px !important;
   }
   
   .status-page .design-component-instance-node {
@@ -73,9 +73,9 @@
   
   .status-page .share-icon {
     height: 32px;
-    left: 101px;
+    left: 110px;
     position: absolute;
-    top: 8px;
+    top: 16px;
     width: 39px;
   }
   
@@ -117,7 +117,7 @@
     font-family: "Inter", Helvetica;
     font-size: 23px;
     font-weight: 600;
-    left: 6px;
+    left: 10px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -154,7 +154,7 @@
     font-family: "Inter", Helvetica;
     font-size: 23px;
     font-weight: 600;
-    left: 18px;
+    left: 22px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -185,7 +185,7 @@
     font-family: "Inter", Helvetica;
     font-size: 23px;
     font-weight: 600;
-    left: -4px;
+    left: 0px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -351,7 +351,7 @@
     line-height: normal;
     position: absolute;
     text-align: center;
-    top: 252px;
+    top: 232px;
     width: 390px;
   }
   
@@ -405,7 +405,7 @@
     font-family: "Inter", Helvetica;
     font-size: 28px;
     font-weight: 600;
-    left: 80px;
+    left: 0px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
@@ -434,7 +434,7 @@
     font-size: 16px;
     font-weight: 500;
     height: 26px;
-    left: 272px;
+    left: 230px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;

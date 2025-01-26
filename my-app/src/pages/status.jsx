@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
+
 import ButtonSample from "../components/ui/ButtonSample/ButtonSample.jsx";
 import "./status.css";
 import { getPatientStatus } from "../backend/services/statusServices.js";
 
 const StatusPage = () => {
-  const { id } = useParams();
+  const { id } = getPatientStatus("HE6420");
 
   const lvl = {
     1: "Resuscitation",
