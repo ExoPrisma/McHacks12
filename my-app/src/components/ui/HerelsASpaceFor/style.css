@@ -22,7 +22,7 @@
   }
 
 
-  .here-is-a-space-for .text-wrapper input {
+  .here-is-a-space-for .text-wrapper textarea {
     width: 100%;
     height: 100%;
     color: black;
@@ -30,6 +30,7 @@
     font-weight: bold;
     border: none;
     outline: none;
+    resize: none;
     background: transparent;
     word-wrap: break-word;
     overflow-wrap: break-word;
