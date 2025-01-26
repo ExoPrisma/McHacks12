@@ -103,9 +103,6 @@ const getPatientStatus = async (patientId) => {
     const patientRef = doc(firestore, "patients", patientId);
     const patientDoc = await getDoc(patientRef);
 
-    const data = getPatientStatus("AU12341")
-    data.id
-
     if (!patientDoc.exists()) {
       console.log("Patient not found:", patientId);
       return null;

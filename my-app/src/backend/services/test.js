@@ -4,13 +4,13 @@ import { firestore } from "../firebase.js";
 
 const testAddPatientToQueue = async () => {
   const patientData = {
-    id: "test_patient_1",
+    id: "HE6420",
     arrival_time: "2024-12-30T11:00:00",
     triage_category: 2,
     status: {
       current_phase: "triaged",
       investigations: {
-        labs: "pending",
+        labs: "ordered",
         imaging: "ordered",
       },
     },
@@ -18,8 +18,8 @@ const testAddPatientToQueue = async () => {
   };
 
   const patientData2 = {
-    id: "test_patient_2",
-    arrival_time: "2024-12-30T10:00:00",
+    id: "AA1111",
+    arrival_time: "2024-12-30T11:00:00",
     triage_category: 1,
     status: {
       current_phase: "triaged",
@@ -32,7 +32,7 @@ const testAddPatientToQueue = async () => {
   };
 
   const patientData3 = {
-    id: "test_patient_3",
+    id: "AA1112",
     arrival_time: "2024-12-30T12:00:00",
     triage_category: 2,
     status: {
@@ -61,7 +61,7 @@ const testAddPatientToQueue = async () => {
 };
 
 const testGetPatientStatus = async () => {
-  const patientId = "test_patient_1";
+  const patientId = "HE6420";
 
   const patientStatus = await getPatientStatus(patientId);
 
@@ -91,7 +91,7 @@ const testCalculateWaitingTime = () => {
 };
 
 const testListenToPatientUpdates = () => {
-  const patientId = "test_patient_1";
+  const patientId = "HE6420";
 
   const unsubscribe = listenToPatientUpdates(patientId);
 
