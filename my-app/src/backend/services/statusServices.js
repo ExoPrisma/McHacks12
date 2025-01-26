@@ -1,8 +1,37 @@
-import { doc, setDoc, collection, getDoc, getDocs, updateDoc, onSnapshot } from "@firebase/firestore";
+import { query, where, doc, setDoc, collection, getDoc, getDocs, updateDoc, onSnapshot } from "@firebase/firestore";
 import { firestore } from "../firebase.js";
+
+const _isShareCodeUnique = async (shareCode) => {
+  const patientsRef = collection(firestore, "patients");
+  const q = query(patientsRef, where("shareCode", "==", shareCode));
+  const querySnapshot = await getDocs(q);
+
+  return querySnapshot.empty;
+};
+
+const generateUniqueShareCode = async (retryLimit = 10) => {
+  let shareCode;
+  let isUnique = false;
+  let retries = 0;
+
+  while (!isUnique && retries < retryLimit) {
+    shareCode = Math.floor(10000000 + Math.random() * 90000000);
+    isUnique = await _isShareCodeUnique(shareCode);
+    retries++;
+  }
+
+  if (!isUnique) {
+    throw new Error("Failed to generate a unique share code.");
+  }
+
+  return shareCode;
+};
 
 const addPatientToQueue = async (patientData) => {
   try {
+
+    const shareCode = await generateUniqueShareCode();
+
     // Add the new patient to Firestore
     const patientRef = doc(firestore, "patients", patientData.id);
     await setDoc(patientRef, {
@@ -21,6 +50,7 @@ const addPatientToQueue = async (patientData) => {
         },
       },
       timeElapsed: patientData.time_elapsed || 0,
+      shareCode: shareCode
     });
 
     console.log("Patient added to queue:", patientData.id);
@@ -87,9 +117,29 @@ const getPatientStatus = async (patientId) => {
       queuePosition: patientData.queuePosition,
       status: patientData.status,
       waitTimeMinutes: patientData.timeElapsed,
+      shareCode: patientData.shareCode
     };
   } catch (error) {
     console.error("Error retrieving patient information:", error);
+    return null;
+  }
+};
+
+const getPatientByShareCode = async (shareCode) => {
+  try {
+    const patientsRef = collection(firestore, "patients");
+    const q = query(patientsRef, where("shareCode", "==", shareCode));
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+      const patientDoc = querySnapshot.docs[0];
+      return patientDoc.data();
+    } else {
+      console.log("Patient not found with share code:", shareCode);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error retrieving patient by share code:", error);
     return null;
   }
 };
@@ -145,4 +195,4 @@ const calculateWaitingTime = (patients, hospitalCapacity) => {
 // To stop listening later
 // unsubscribe();
 
-export { addPatientToQueue, getPatientStatus, listenToPatientUpdates, calculateWaitingTime }
+export { addPatientToQueue, getPatientByShareCode, getPatientStatus, listenToPatientUpdates, calculateWaitingTime }
