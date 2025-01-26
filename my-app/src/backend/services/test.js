@@ -1,11 +1,39 @@
 import { doc, getDoc, updateDoc, deleteDoc } from "@firebase/firestore"
-import { addPatientToQueue, getPatientStatus, listenToPatientUpdates, calculateWaitingTime } from "./statusServices";
-import { firestore } from "../firebase";
+import { addPatientToQueue, getPatientStatus, listenToPatientUpdates, calculateWaitingTime } from "./statusServices.js";
+import { firestore } from "../firebase.js";
 
 const testAddPatientToQueue = async () => {
   const patientData = {
     id: "test_patient_1",
+    arrival_time: "2024-12-30T11:00:00",
+    triage_category: 2,
+    status: {
+      current_phase: "triaged",
+      investigations: {
+        labs: "pending",
+        imaging: "ordered",
+      },
+    },
+    time_elapsed: 0,
+  };
+
+  const patientData2 = {
+    id: "test_patient_2",
     arrival_time: "2024-12-30T10:00:00",
+    triage_category: 1,
+    status: {
+      current_phase: "triaged",
+      investigations: {
+        labs: "pending",
+        imaging: "ordered",
+      },
+    },
+    time_elapsed: 0,
+  };
+
+  const patientData3 = {
+    id: "test_patient_3",
+    arrival_time: "2024-12-30T12:00:00",
     triage_category: 2,
     status: {
       current_phase: "triaged",
@@ -18,6 +46,8 @@ const testAddPatientToQueue = async () => {
   };
 
   await addPatientToQueue(patientData);
+  await addPatientToQueue(patientData2);
+  await addPatientToQueue(patientData3);
 
   // Verify the patient was added
   const patientRef = doc(firestore, "patients", patientData.id);
@@ -86,12 +116,12 @@ const runTests = async () => {
 
 runTests();
 
-const cleanupTestData = async () => {
-  const patientId = "test_patient_1";
-  const patientRef = doc(firestore, "patients", patientId);
-  await deleteDoc(patientRef);
-  console.log("Test data cleaned up.");
-};
+// const cleanupTestData = async () => {
+//   const patientId = "test_patient_1";
+//   const patientRef = doc(firestore, "patients", patientId);
+//   await deleteDoc(patientRef);
+//   console.log("Test data cleaned up.");
+// };
 
-// Call this after all tests are done
-cleanupTestData();
+// // Call this after all tests are done
+// cleanupTestData();

@@ -1,5 +1,5 @@
-import { doc, setDoc, collection, getDoc, getDocs, query, orderBy, updateDoc, onSnapshot } from "@firebase/firestore";
-import { firestore } from "../firebase";
+import { doc, setDoc, collection, getDoc, getDocs, updateDoc, onSnapshot } from "@firebase/firestore";
+import { firestore } from "../firebase.js";
 
 const addPatientToQueue = async (patientData) => {
   try {
@@ -25,30 +25,47 @@ const addPatientToQueue = async (patientData) => {
 
     console.log("Patient added to queue:", patientData.id);
 
-    // Fetch all patients and sort by triageCategory
-    const patientsQuery = query(collection(firestore, "patients"), orderBy("triageCategory"));
-    const patientsSnapshot = await getDocs(patientsQuery);
+    const patientsSnapshot = await getDocs(collection(firestore, "patients"));
     const patients = patientsSnapshot.docs.map((doc) => doc.data());
 
+    // Manually sort patients by triageCategory and arrivalTime
+    const sortedPatients = patients.sort((a, b) => {
+      if (a.triageCategory === b.triageCategory) {
+        return new Date(a.arrivalTime) - new Date(b.arrivalTime);
+      }
+      return a.triageCategory - b.triageCategory;
+    });
+    
+    console.log(sortedPatients)
+
+    const categoryCounters = {};
+
     // Update queue positions based on sorted list
-    for (let i = 0; i < patients.length; i++) {
-      const patient = patients[i];
+    for (let i = 0; i < sortedPatients.length; i++) {
+      const patient = sortedPatients[i];
+
+      // Initialize the category counter if it doesn't exist
+      if (!categoryCounters[patient.triageCategory]) {
+        categoryCounters[patient.triageCategory] = 0;
+      }
+
+      // Increment the category counter
+      categoryCounters[patient.triageCategory] += 1;
+
       const patientRef = doc(firestore, "patients", patient.id);
 
       await updateDoc(patientRef, {
         queuePosition: {
           global: i + 1, // Global position in the queue
-          category: patients
-            .slice(0, i + 1)
-            .filter((p) => p.triageCategory === patient.triageCategory).length, // Position within the same triage category
+          category: categoryCounters[patient.triageCategory], // Position within the same triage category
         },
       });
     }
 
-    console.log("Queue updated based on triage category.");
-  } catch (error) {
-    console.error("Error adding patient to queue:", error);
-  }
+      console.log("Queue updated based on triage category.");
+    } catch (error) {
+      console.error("Error adding patient to queue:", error);
+    }
 };
 
 const getPatientStatus = async (patientId) => {
